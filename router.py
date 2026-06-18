@@ -10,14 +10,14 @@ model = ChatGroq(model='openai/gpt-oss-120b')
 
 router_prompt = ChatPromptTemplate.from_messages([
     ('system', get_prompt('router')),
-    ('human', '{query}'),                    # <- 'user_input' se 'query' kiya
+    ('human', '{query}'),                    
 ])
-router_chain = router_prompt | model | StrOutputParser()    # <- model_2 se model kiya
+router_chain = router_prompt | model | StrOutputParser() 
 
 def route(query: str) -> str:
     decision = router_chain.invoke({"query": query})
     return decision.strip().upper()
 
-if __name__ == "__main__":
+'''if __name__ == "__main__":
     q = input("Enter your query: ")
-    print(route(q))
+    print(route(q))'''
