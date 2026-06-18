@@ -8,12 +8,12 @@ PROMPT_REGISTRY={
     'complaints':COMPLAINTS
 }
 
-def _get(agent_name:str):
+def _get(agent_name: str):
     '''Fetch the prompt configuration for a given agent name.'''
-    name = agent_name.lower() 
-    if agent_name not in PROMPT_REGISTRY:
+    name = agent_name.lower()
+    if name not in PROMPT_REGISTRY:          
         raise ValueError(f"Agent '{agent_name}' not found in the registry.")
-    return PROMPT_REGISTRY[agent_name]
+    return PROMPT_REGISTRY[name]             
 
 def get_prompt(agent_name:str):
     '''Get the prompt text for a specific agent.'''
